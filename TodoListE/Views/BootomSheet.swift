@@ -13,39 +13,43 @@ struct BootomSheet: View {
 //    @State private var showBottomSheet = false
     @State private var text = "Welcome text"
     @FocusState var focusedKeyboard: Bool
+    @State var colorScheme: ColorScheme? = nil
     @State private var textFieldText = ""
     @State private var alertTitle = ""
     @State private var showAlert = false
     var body: some View {
-        NavigationStack {
-            List {
-                TextField("Type something here...", text: $textFieldText)
-                    .frame(height: 50)
-                    .textFieldStyle(.roundedBorder)
-                    .clipShape(.rect(cornerRadius: 10))
-                    .focused($focusedKeyboard)
+        VStack {
+            NavigationStack {
                 
-                Button {
-                    print("Tap")
-                    saveButtonPressed()
-                } label: {
-                    HStack(spacing: 50) {
-                        
-                        //                            Image(systemName: "globe")
-                        //                            Spacer()
-                        Text("Add task")
-                            .frame(maxWidth: .infinity)
-                            .tint(.white)
-                    }
-                    .frame(height: 40)
-                    .background(Color.accentColor)
-                    .clipShape(.rect(cornerRadius: 10))
-                    .alert("Alert!", isPresented: $showAlert, actions: {}, message: {Text(alertTitle)})
+                List {
+                    TextField("Type something here...", text: $textFieldText)
+                        .frame(height: 50)
+                        .textFieldStyle(.roundedBorder)
+                        .clipShape(.rect(cornerRadius: 10))
+                        .focused($focusedKeyboard)
+                    
+                    Button {
+                        print("Tap")
+                        saveButtonPressed()
+                    } label: {
+                        HStack(spacing: 50) {
+                            
+                            //                            Image(systemName: "globe")
+                            //                            Spacer()
+                            Text("Add task")
+                                .frame(maxWidth: .infinity)
+                                .foregroundColor(.secondary)
+                        }
+                        .frame(height: 40)
+                        .background(Color.accentColor)
+                        .clipShape(.rect(cornerRadius: 10))
+                        .alert("Alert!", isPresented: $showAlert, actions: {}, message: {Text(alertTitle)})
+                    }.background(Color.blue)
                 }
             }
+            .onAppear() {
+                focusedKeyboard = true
         }
-        .onAppear() {
-            focusedKeyboard = true
         }
     }
     func saveButtonPressed() {
