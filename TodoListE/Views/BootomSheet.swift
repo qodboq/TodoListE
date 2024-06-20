@@ -18,16 +18,17 @@ struct BootomSheet: View {
     @State private var alertTitle = ""
     @State private var showAlert = false
     var body: some View {
-        VStack {
+
             NavigationStack {
-                
+             
                 List {
                     TextField("Type something here...", text: $textFieldText)
                         .frame(height: 50)
                         .textFieldStyle(.roundedBorder)
                         .clipShape(.rect(cornerRadius: 10))
                         .focused($focusedKeyboard)
-                    
+                        .listRowSeparator(.hidden)
+                        .shadow(radius: 10)
                     Button {
                         print("Tap")
                         saveButtonPressed()
@@ -38,19 +39,22 @@ struct BootomSheet: View {
                             //                            Spacer()
                             Text("Add task")
                                 .frame(maxWidth: .infinity)
-                                .foregroundColor(.secondary)
+                                .foregroundColor(.white)
                         }
                         .frame(height: 40)
                         .background(Color.accentColor)
                         .clipShape(.rect(cornerRadius: 10))
+                        .shadow(color: .white, radius: 10, x: 0.0, y: 0.0)
                         .alert("Alert!", isPresented: $showAlert, actions: {}, message: {Text(alertTitle)})
-                    }.background(Color.blue)
-                }
+                    }
+                }.scrollContentBackground(.hidden)
+                    .shadow(radius: 10)
             }
             .onAppear() {
                 focusedKeyboard = true
-        }
-        }
+        }.presentationDetents([.medium])
+//       .presentationCornerRadius(100)
+
     }
     func saveButtonPressed() {
         if textIsAppropirate() {
