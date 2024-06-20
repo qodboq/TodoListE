@@ -11,15 +11,12 @@ struct ListView: View {
     
     @EnvironmentObject var listViewMode: ListViewModel
     @State var colorScheme: ColorScheme? = nil// changing dark mode
-//    @Environment(\.dismiss) var dismiss //dismiss sheet
     @State private var showSheet = false
-    private let textFieldColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1) // colorLiterall()
     var body: some View {
-
                     NavigationStack {
                         ZStack {
                             if listViewMode.items.isEmpty {
-                                Text("YaY Everything is Done")
+                                Text("You Have a Free Day :)")
                             } else {
                                 List {
                                     ForEach(listViewMode.items) {item in
@@ -33,9 +30,7 @@ struct ListView: View {
                                     .onDelete(perform: listViewMode.deleteItem)
                                     .onMove(perform: listViewMode.moveItem)
                                 }.scrollContentBackground(.hidden)
-                                    
                             }
-                 
                         }
                         .toolbar() {
                                ToolbarItem(placement: .topBarLeading) {
@@ -47,20 +42,18 @@ struct ListView: View {
                             ToolbarItem(placement: .bottomBar) {
                                 HStack() {
                                     Spacer()
-                                    Button ("Add"){
+                                    Button {
                                         showSheet.toggle()
+                                    } label: {
+                                        Image(systemName: "plus")
                                     }
-                                    .clipShape(Circle())
+                                    .shadow(color: .gray, radius: 5)
+                                    .font(.title)
                                     .padding()
-                                    .buttonStyle(.borderedProminent)
-                                    .controlSize(.large)
                                 }.sheet(isPresented: $showSheet, content: {BootomSheet() })
-                                    
                             }
                        }
-  
                     }.navigationTitle("Todo List")
-                     
     }
 }
 

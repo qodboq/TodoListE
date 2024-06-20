@@ -18,9 +18,7 @@ struct BootomSheet: View {
     @State private var alertTitle = ""
     @State private var showAlert = false
     var body: some View {
-
             NavigationStack {
-             
                 List {
                     TextField("Type something here...", text: $textFieldText)
                         .frame(height: 50)
@@ -28,9 +26,8 @@ struct BootomSheet: View {
                         .clipShape(.rect(cornerRadius: 10))
                         .focused($focusedKeyboard)
                         .listRowSeparator(.hidden)
-                        .shadow(radius: 10)
+                        .shadow(color: .gray, radius: 5)
                     Button {
-                        print("Tap")
                         saveButtonPressed()
                     } label: {
                         HStack(spacing: 50) {
@@ -39,21 +36,29 @@ struct BootomSheet: View {
                             //                            Spacer()
                             Text("Add task")
                                 .frame(maxWidth: .infinity)
-                                .foregroundColor(.white)
+                                .font(.headline)
                         }
-                        .frame(height: 40)
-                        .background(Color.accentColor)
-                        .clipShape(.rect(cornerRadius: 10))
-                        .shadow(color: .white, radius: 10, x: 0.0, y: 0.0)
+                        .frame(height: 35)
+                        .background(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .fill(Color.white).opacity(0.1)
+                            )
+
+                        .overlay(RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.gray, lineWidth: 0.3))
+                        .shadow(color: .gray, radius: 5, x: 0.0, y: 0.0)
+                        .padding(.bottom, 5)
                         .alert("Alert!", isPresented: $showAlert, actions: {}, message: {Text(alertTitle)})
                     }
                 }.scrollContentBackground(.hidden)
                     .shadow(radius: 10)
+            
             }
             .onAppear() {
                 focusedKeyboard = true
         }.presentationDetents([.medium])
-//       .presentationCornerRadius(100)
+         .presentationCornerRadius(20)
+         .presentationDragIndicator(.visible)
 
     }
     func saveButtonPressed() {
@@ -78,7 +83,7 @@ struct BootomSheet: View {
 #Preview {
     NavigationStack {
         BootomSheet()
-            .environmentObject(ListViewModel())
+//            .environmentObject(ListViewModel())
     }
    
 }
