@@ -10,7 +10,8 @@ import SwiftUI
 struct ListView: View {
     
     @EnvironmentObject var listViewMode: ListViewModel
-    @State var colorScheme: ColorScheme? = nil// changing dark mode
+//    @State var colorScheme: ColorScheme? = nil// changing dark mode
+    
     @State private var showSheet = false
     var body: some View {
                     NavigationStack {
@@ -22,7 +23,7 @@ struct ListView: View {
                                     ForEach(listViewMode.items) {item in
                                         ListRowView(item: item)
                                             .onTapGesture {
-                                                withAnimation(.bouncy) {
+                                                withAnimation(.default) {
                                                     listViewMode.updateItem(item: item)
                                                 }
                                             }.listRowSeparator(.hidden)
