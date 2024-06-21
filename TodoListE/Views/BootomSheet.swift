@@ -56,9 +56,10 @@ struct BootomSheet: View {
             }
             .onAppear() {
                 focusedKeyboard = true
-        }.presentationDetents([.medium])
-         .presentationCornerRadius(20)
-         .presentationDragIndicator(.visible)
+        }
+//         .presentationDetents([.medium])
+           .presentationCornerRadius(20)
+           .presentationDragIndicator(.visible)
 
     }
     func saveButtonPressed() {

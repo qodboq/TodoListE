@@ -10,26 +10,16 @@ import SwiftUI
 struct ListView: View {
     
     @EnvironmentObject var listViewMode: ListViewModel
-    @State var colorScheme: ColorScheme? = nil// changing dark mode
+//    @State var colorScheme: ColorScheme? = nil// changing dark mode
+    @State private var activeList = ActiveList()
     @State private var showSheet = false
     var body: some View {
                     NavigationStack {
-                        ZStack {
+                        VStack {
                             if listViewMode.items.isEmpty {
                                 Text("You Have a Free Day :)")
                             } else {
-                                List {
-                                    ForEach(listViewMode.items) {item in
-                                        ListRowView(item: item)
-                                            .onTapGesture {
-                                                withAnimation(.bouncy) {
-                                                    listViewMode.updateItem(item: item)
-                                                }
-                                            }.listRowSeparator(.hidden)
-                                    }
-                                    .onDelete(perform: listViewMode.deleteItem)
-                                    .onMove(perform: listViewMode.moveItem)
-                                }.scrollContentBackground(.hidden)
+                                activeList
                             }
                         }
                         .toolbar() {
@@ -51,9 +41,9 @@ struct ListView: View {
                                     .font(.title)
                                     .padding()
                                 }.sheet(isPresented: $showSheet, content: {BootomSheet() })
-                            }
-                       }
-                    }.navigationTitle("Todo List")
+                }
+            }
+        }
     }
 }
 

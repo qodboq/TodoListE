@@ -7,30 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		038512812C25A432008E7981 /* ActiveList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038512802C25A432008E7981 /* ActiveList.swift */; };
+		038512832C25A43E008E7981 /* CompletedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038512822C25A43E008E7981 /* CompletedList.swift */; };
 		0390CAC32C0DC96000C5A158 /* TodoListEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0390CAC22C0DC96000C5A158 /* TodoListEApp.swift */; };
 		0390CAC72C0DC96100C5A158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0390CAC62C0DC96100C5A158 /* Assets.xcassets */; };
 		0390CACA2C0DC96100C5A158 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0390CAC92C0DC96100C5A158 /* Preview Assets.xcassets */; };
 		0390CAD32C0DCADF00C5A158 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0390CAD22C0DCADF00C5A158 /* ListView.swift */; };
 		0390CAD52C0DCEA200C5A158 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0390CAD42C0DCEA200C5A158 /* ListRowView.swift */; };
-		0390CAD92C0DE0DA00C5A158 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0390CAD82C0DE0DA00C5A158 /* AddView.swift */; };
 		03B0BCCB2C1C9D2E006C84A1 /* BootomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0BCCA2C1C9D2E006C84A1 /* BootomSheet.swift */; };
 		03BF4C9C2C0F30F900906D3B /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF4C9B2C0F30F900906D3B /* ItemModel.swift */; };
 		03BF4C9F2C148AEA00906D3B /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BF4C9E2C148AEA00906D3B /* ListViewModel.swift */; };
-		03DC3D3B2C1B44A5004984C2 /* NoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC3D3A2C1B44A5004984C2 /* NoItemsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		038512802C25A432008E7981 /* ActiveList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveList.swift; sourceTree = "<group>"; };
+		038512822C25A43E008E7981 /* CompletedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedList.swift; sourceTree = "<group>"; };
 		0390CABF2C0DC96000C5A158 /* TodoListE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoListE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0390CAC22C0DC96000C5A158 /* TodoListEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListEApp.swift; sourceTree = "<group>"; };
 		0390CAC62C0DC96100C5A158 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0390CAC92C0DC96100C5A158 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0390CAD22C0DCADF00C5A158 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		0390CAD42C0DCEA200C5A158 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
-		0390CAD82C0DE0DA00C5A158 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		03B0BCCA2C1C9D2E006C84A1 /* BootomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootomSheet.swift; sourceTree = "<group>"; };
 		03BF4C9B2C0F30F900906D3B /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		03BF4C9E2C148AEA00906D3B /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
-		03DC3D3A2C1B44A5004984C2 /* NoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoItemsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				0390CAD22C0DCADF00C5A158 /* ListView.swift */,
-				0390CAD82C0DE0DA00C5A158 /* AddView.swift */,
+				038512802C25A432008E7981 /* ActiveList.swift */,
+				038512822C25A43E008E7981 /* CompletedList.swift */,
 				0390CAD42C0DCEA200C5A158 /* ListRowView.swift */,
-				03DC3D3A2C1B44A5004984C2 /* NoItemsView.swift */,
 				03B0BCCA2C1C9D2E006C84A1 /* BootomSheet.swift */,
 			);
 			path = Views;
@@ -180,13 +180,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				03BF4C9C2C0F30F900906D3B /* ItemModel.swift in Sources */,
-				0390CAD92C0DE0DA00C5A158 /* AddView.swift in Sources */,
 				03BF4C9F2C148AEA00906D3B /* ListViewModel.swift in Sources */,
 				0390CAC32C0DC96000C5A158 /* TodoListEApp.swift in Sources */,
+				038512812C25A432008E7981 /* ActiveList.swift in Sources */,
 				0390CAD32C0DCADF00C5A158 /* ListView.swift in Sources */,
 				03B0BCCB2C1C9D2E006C84A1 /* BootomSheet.swift in Sources */,
-				03DC3D3B2C1B44A5004984C2 /* NoItemsView.swift in Sources */,
 				0390CAD52C0DCEA200C5A158 /* ListRowView.swift in Sources */,
+				038512832C25A43E008E7981 /* CompletedList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
