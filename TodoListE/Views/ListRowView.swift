@@ -16,10 +16,13 @@ struct ListRowView: View {
             Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
                 .foregroundStyle(item.isCompleted ? .green : .black)
             Text(item.title)
+                .strikethrough(item.isCompleted ? true : false)
+                .foregroundStyle(item.isCompleted ? .gray : .black)
             Spacer()
         }
     }
 }
+
 
 var item1 = ItemModel(title: "First Item", isCompleted: false)
 var item2 = ItemModel(title: "Second Item", isCompleted: true)
