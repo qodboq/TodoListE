@@ -8,24 +8,23 @@
 import SwiftUI
 
 struct CompletedList: View {
+    let array = ["Hovno", "Makove"]
     @EnvironmentObject var listViewMode: ListViewModel
     var body: some View {
         List {
-            Section {} header: {
-                Text("Completed")
-            }.padding(.bottom, -10)
-            ForEach(listViewMode.items) {item in
-                ListRowView(item: item)
-                    .onTapGesture {
-                        withAnimation(.default) {
-                            listViewMode.updateItem(item: item)
+            Section (header: Text("completed")) {
+                ForEach(listViewMode.items) {item in
+                    ListRowView(item: item)
+                        .onTapGesture {
+                            withAnimation(.default) {
+                                listViewMode.updateItem(item: item)
+                            }
                         }
-                    }
-                    .listRowSeparator(.hidden)
-
+                        .listRowSeparator(.hidden)
+                }
+                .onDelete(perform: listViewMode.deleteItem)
+                .onMove(perform: listViewMode.moveItem)
             }
-            .onDelete(perform: listViewMode.deleteItem)
-            .onMove(perform: listViewMode.moveItem)
         }
         .scrollContentBackground(.hidden)
     }

@@ -23,6 +23,7 @@ class ListViewModel: ObservableObject {
             savedItems()
         }
     }
+
     let itemsKey: String = "items_list"
     init() {
         getItems()

@@ -35,10 +35,10 @@ struct ListView: View {
                                     Button {
                                         showSheet.toggle()
                                     } label: {
-                                        Image(systemName: "plus")
+                                        Image(systemName: "plus.circle.fill")
                                     }
-                                    .shadow(color: .gray, radius: 5)
-                                    .font(.title)
+                                    .shadow(color: .white, radius: 5)
+                                    .font(.largeTitle)
                                     .padding()
                                 }.sheet(isPresented: $showSheet, content: {BootomSheet() })
                 }
