@@ -20,39 +20,34 @@ struct BootomSheet: View {
     var body: some View {
             NavigationStack {
                 List {
-                    TextField("Type something here...", text: $textFieldText)
-                        .frame(height: 50)
-                        .textFieldStyle(.roundedBorder)
-                        .clipShape(.rect(cornerRadius: 10))
-                        .focused($focusedKeyboard)
-                        .listRowSeparator(.hidden)
-                        .shadow(color: .gray, radius: 5)
-                    Button {
-                        saveButtonPressed()
-                    } label: {
-                        HStack(spacing: 50) {
-                            
-                            //                            Image(systemName: "globe")
-                            //                            Spacer()
-                            Text("Add task")
-                                .frame(maxWidth: .infinity)
-                                .font(.headline)
-                        }
-                        .frame(height: 35)
-                        .background(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .fill(Color.white).opacity(0.1)
-                            )
+                    VStack {
+                        TextField("Type something here...", text: $textFieldText)
+                            .frame(height: 50)
+                            .textFieldStyle(.roundedBorder)
+                            .clipShape(.rect(cornerRadius: 10))
+                            .focused($focusedKeyboard)
+                            .listRowSeparator(.hidden)
+                            .shadow(color: .gray, radius: 5, x: -1, y: 5)
+                        Button {
+                            saveButtonPressed()
+                        } label: {
+                            HStack {
+    //                                                        Image(systemName: "globe")
+    //                                                        Spacer()
+                                Text("Add task")
+                                    .frame(maxWidth: .infinity)
 
-                        .overlay(RoundedRectangle(cornerRadius: 5)
-                            .stroke(Color.gray, lineWidth: 0.3))
-                        .shadow(color: .gray, radius: 5, x: 0.0, y: 0.0)
-                        .padding(.bottom, 5)
-                        .alert("Alert!", isPresented: $showAlert, actions: {}, message: {Text(alertTitle)})
-                    }
-                }.scrollContentBackground(.hidden)
-                    .shadow(radius: 10)
-            
+ 
+                            }
+                            .alert("Alert!", isPresented: $showAlert, actions: {}, message: {Text(alertTitle)})
+                        }
+                        .buttonStyle(.borderedProminent).shadow(color: .gray, radius: 5, x: -1, y: 5)
+                        .tint(Color.blue)
+                        .controlSize(.regular)
+                    }.padding(.bottom, 3)
+                }
+                .scrollContentBackground(.hidden)
+                .shadow(radius: 10)
             }
             .onAppear() {
                 focusedKeyboard = true
