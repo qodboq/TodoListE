@@ -14,9 +14,10 @@ struct ActiveList: View {
             List {
                 Section (header: Text("Active")) {
                     ForEach(listViewMode.items) {item in
+                        
                         ListRowView(item: item)
                             .onTapGesture {
-                                withAnimation(.default) {
+                                withAnimation(.interactiveSpring) {
                                     listViewMode.updateItem(item: item)
                                 }
                             }
@@ -37,3 +38,9 @@ struct ActiveList: View {
     ActiveList()
         .environmentObject(ListViewModel())
 }
+// Can HELP !!!!
+//ForEach(array) { arr in
+//     if arr.show {
+//         Text("\(arr.text)")
+//     }
+//}

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CompletedList: View {
-    let array = ["Hovno", "Makove"]
+
     @EnvironmentObject var listViewMode: ListViewModel
     var body: some View {
         List {

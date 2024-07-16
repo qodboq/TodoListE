@@ -6,9 +6,7 @@
 //
 
 import SwiftUI
-// Dark mode sposobuje problemy
 struct ListView: View {
-    
     @EnvironmentObject var listViewMode: ListViewModel
 //    @State var colorScheme: ColorScheme? = nil// changing dark mode
     @State private var activeList = ActiveList()
@@ -18,9 +16,10 @@ struct ListView: View {
                         VStack {
                             if listViewMode.items.isEmpty {
                                 Text("You Have a Free Day :)")
-                            } else {
+                            } else if !listViewMode.items.isEmpty {
                                 activeList
-                            }
+                            } 
+                            
                         }
                         .toolbar() {
                                ToolbarItem(placement: .topBarLeading) {

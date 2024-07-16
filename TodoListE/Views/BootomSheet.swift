@@ -10,10 +10,10 @@ import SwiftUI
 struct BootomSheet: View {
     @EnvironmentObject var listViewModel: ListViewModel
     @Environment(\.dismiss) var dismiss //dismiss sheet
-//    @State private var showBottomSheet = false
+//    @State private var showBottomSheet = false // obsolete !!!
     @State private var text = "Welcome text"
     @FocusState var focusedKeyboard: Bool
-    @State var colorScheme: ColorScheme? = nil
+    @State var colorScheme: ColorScheme? = nil // not used right now 
     @State private var textFieldText = ""
     @State private var alertTitle = ""
     @State private var showAlert = false
@@ -44,7 +44,7 @@ struct BootomSheet: View {
                         .buttonStyle(.borderedProminent).shadow(color: .gray, radius: 5, x: -1, y: 5)
                         .tint(Color.blue)
                         .controlSize(.regular)
-                    }.padding(.bottom, 3)
+                    }.padding(.bottom, 5)
                 }
                 .scrollContentBackground(.hidden)
                 .shadow(radius: 10)
@@ -52,7 +52,7 @@ struct BootomSheet: View {
             .onAppear() {
                 focusedKeyboard = true
         }
-//         .presentationDetents([.medium])
+//         .presentationDetents([.medium]) // how high BottomSheet will popUp
            .presentationCornerRadius(20)
            .presentationDragIndicator(.visible)
 
